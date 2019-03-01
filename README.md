@@ -14,9 +14,9 @@ Run the game online at gaff.epizy.com, it can be played by anyone.
 
 ## Future
 List of initiatives that I may take to make the game even better:
-[ ] Hide last `<p>` and show it only after the first round;
-[ ] Add a button to reset the score;
-[ ] Add an icon next to the score when a round is played, making more explicit to the player what his and the computer options are chosen;
+- [ ] Hide last `<p>` and show it only after the first round;
+- [ ] Add a button to reset the score;
+- [ ] Add an icon next to the score when a round is played, making more explicit to the player what his and the computer options are chosen;
 
 
 ## Contributions

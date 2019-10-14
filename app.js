@@ -14,7 +14,7 @@ function getComputerChoice() {
 	return choices[randomNumber];
 }
 
-function win(userChoice, computerChoice) {
+function userWins(userChoice, computerChoice) {
 	userScore++;
 	userScore_span.innerHTML = userScore;
 	result_p.innerHTML = userChoice + " beats " + computerChoice + ". You won!";
@@ -22,7 +22,7 @@ function win(userChoice, computerChoice) {
 	setTimeout(function() { document.getElementById(userChoice).classList.remove('green-glow') }, 500);
 }
 
-function lose(userChoice, computerChoice) {
+function userLose(userChoice, computerChoice) {
 	computerScore++;
 	computerScore_span.innerHTML = computerScore;
 	result_p.innerHTML = userChoice + " loses to " + computerChoice + ". You lost!";
@@ -30,37 +30,37 @@ function lose(userChoice, computerChoice) {
 	setTimeout(() => document.getElementById(userChoice).classList.remove('red-glow'), 500);
 }
 
-function draw(userChoice, computerChoice) {
+function itsaDraw(userChoice, computerChoice) {
 	result_p.innerHTML = userChoice + " draws with " + computerChoice + ". It's a draw...";
 	document.getElementById(userChoice).classList.add('gray-glow');
 	setTimeout(() => document.getElementById(userChoice).classList.remove('gray-glow'), 500);
 }
 
-function game(userChoice) {
+function whoWins(userChoice) {
 	const computerChoice = getComputerChoice();
 	switch (userChoice + computerChoice) {
 		case "RockScissors":
 		case "PaperRock":
 		case "ScissorsPaper":
-			win(userChoice, computerChoice);
+			userWins(userChoice, computerChoice);
 			break;
 		case "RockPaper":
 		case "PaperScissors":
 		case "ScissorsRock":
-			lose(userChoice, computerChoice);
+			userLose(userChoice, computerChoice);
 			break;
 		case "RockRock":
 		case "PaperPaper":
 		case "ScissorsScissors":
-			draw(userChoice, computerChoice);
+			itsaDraw(userChoice, computerChoice);
 			break;
 	}
 }
 
-function main () {
-	rock_div.addEventListener('click', () => game("Rock"));
-	paper_div.addEventListener('click', () => game("Paper"));
-	scissors_div.addEventListener('click', () => game("Scissors"));
+function runTheGame () {
+	rock_div.addEventListener('click', () => whoWins("Rock"));
+	paper_div.addEventListener('click', () => whoWins("Paper"));
+	scissors_div.addEventListener('click', () => whoWins("Scissors"));
 }
 
-main();
+runTheGame();
